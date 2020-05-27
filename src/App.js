@@ -1,4 +1,5 @@
 import React from "react";
+import Home from "./Components/Home"
 
 class App extends React.Component {
   state = {
@@ -139,26 +140,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <h2>teste</h2>
-        <input
-          value={this.state.minimunValue}
-          onChange={this.onChangeMinimunValue}
-          placeholder={"Valor Minimo"}
-        />
-        <input
-          value={this.state.maximunValue}
-          onChange={this.onChangeMaxmunValue}
-          placeholder={"Valor Maximo"}
-        />
-        <input
-          value={this.state.productName}
-          onChange={this.onChangeProductName}
-          placeholder={"Nome Produto"}
-        />
-        <select onChange={this.onChangeOrder} value={this.state.order}>
-          <option value="0">Ordem Crescente</option>
-          <option value="1">Ordem Decrescente</option>
-        </select>
+        <h2>Teste</h2>
       </div>
     );
   }
