@@ -1,5 +1,6 @@
 import React from "react";
 import Home from "./Components/Home"
+
 class App extends React.Component {
   state = {
     minimunValue: "",
@@ -139,8 +140,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <Home></Home>
-
+        <h2>Teste</h2>
       </div>
     );
   }
