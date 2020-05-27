@@ -14,7 +14,7 @@ let carrinho = [
 
 function Home() {
     function handleClick(e) {
-        console.log(e);
+        carrinho.push(listaDeProdutos[e]);
     }
     const listaDeProdutos = [
 
