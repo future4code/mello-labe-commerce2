@@ -1,41 +1,56 @@
-    export function FilterList(list, maximunValue, minimunValue, productName) {
-    let deltaList = list;
+ import React from 'react';
+  
+  export function FilterList(list, maximunValue, minimunValue, productName) 
+  {
+  let deltaList = list;
+  if (maximunValue !== "")
+    deltaList = list.filter(
+      produto => produto.value < maximunValue
+    );
 
-    if (maximunValue !== "")
-      deltaList = list.filter(
-        produto => produto.value < maximunValue
-      );
+  if (minimunValue !== "")
+    deltaList = deltaList.filter(
+      produto => produto.value > minimunValue
+    );
 
-    if (minimunValue !== "")
-      deltaList = deltaList.filter(
-        produto => produto.value > minimunValue
-      );
+  if (productName !== "")
+    deltaList = deltaList.filter(
+      produto => produto.name === productName
+    );
 
-    if (productName !== "")
-      deltaList = deltaList.filter(
-        produto => produto.name === productName
-      );
+  return deltaList;
+}
 
-    return deltaList;
+function compare(a, b) 
+{
+  const valueA = a.value;
+  const valueB = b.value;
+
+  let comparison = 0;
+  if (valueA > valueB) {
+  comparison = 1;
+  } else if (valueA < valueB) {
+  comparison = -1;
+  }
+  return comparison;
   }
 
-  function compare(a, b) {
-    const valueA = a.value;
-    const valueB = b.value;
+export function SortList(list, order)
+{
+  let deltaList = list;
 
-    let comparison = 0;
-    if (valueA > valueB) {
-    comparison = 1;
-    } else if (valueA < valueB) {
-    comparison = -1;
-    }
-    return comparison;
-   }
+  deltaList.sort(compare);
 
-  export function SortList(list, order) {
-    let deltaList = list;
+  return order === "0" ? deltaList : deltaList.reverse();
+}
 
-    deltaList.sort(compare);
 
-    return order === "0" ? deltaList : deltaList.reverse();
-  }
+function Filters(props)
+{ 
+  return (
+      <div>
+      </div>
+  );
+}
+
+export default Filters;

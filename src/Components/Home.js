@@ -1,46 +1,22 @@
 import React from 'react';
+import Produto from "./Produto"
 
-const quantidadeProdutos = [
-    'Quantidade de produtos:'
-]
+function Home(props) {
 
-
-
-let carrinho = [
-
-]
-
-
-
-function Home() {
-    function handleClick(e) {
-        carrinho.push(listaDeProdutos[e]);
-    }
-    const listaDeProdutos = [
-
-        'item1',
-        <button>Adicionar ao carrinho</button>,
-        'item2',
-        <button>Adicionar ao carrinho</button>,
-        'item3',
-        <button>Adicionar ao carrinho</button>,
-        'item4',
-        <button>Adicionar ao carrinho</button>,
-        'item5',
-        <button>Adicionar ao carrinho</button>,
-        'item6',
-        <button>Adicionar ao carrinho</button>,
-        'item7',
-        <button>Adicionar ao carrinho</button>,
-        'item8',
-        <button onClick={() => handleClick(1)}>Adicionar ao carrinho</button>
-    ]
+  const homeElements = props.products.map(product =>{
     return (
-        <div className="App">
-            <h3>{quantidadeProdutos}</h3>
-            <ul>{listaDeProdutos}</ul>
+        <div key={product.id + product.name}>
+            <Produto id={product.id} name={product.name} value={product.value} imageUrl={product.imageUrl} addToCart={props.addToCart}></Produto>
         </div>
     );
+  });
+
+  return (
+      <div>
+        <h1>Products</h1>
+        <div>{homeElements}</div>
+      </div>
+  );
 }
 
 export default Home;
