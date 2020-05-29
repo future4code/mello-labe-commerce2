@@ -8,20 +8,19 @@ import {
 
 function Home(props) {
 
-  const homeElements = props.products.map(product => {
+  const homeElements = props.products.map(product =>{
     return (
-      <ProductCard key={product.id + product.name}>
-        <Produto id={product.id} name={product.name} value={product.value} imageUrl={product.imageUrl} addToCart={props.addToCart}></Produto>
-      </ProductCard>
+        <ProductCard key={product.id + product.name}>
+            <Produto id={product.id} name={product.name} value={product.value} imageUrl={product.imageUrl} addToCart={props.addToCart}></Produto>
+        </ProductCard>
     );
   });
 
   return (
-    <>
-      <ProductsCatalog>{homeElements}</ProductsCatalog>
-    </>
+      <>
+        <ProductsCatalog>{homeElements}</ProductsCatalog>
+      </>
   );
 }
 
 export default Home;
-

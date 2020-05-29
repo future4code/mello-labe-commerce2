@@ -1,10 +1,9 @@
-
 import React from "react";
 import Home from "./Components/Home"
 import Cart from "./Components/Cart"
-import { SortList } from "./Components/Filters"
-import { FilterList } from "./Components/Filters"
-import { FilterCart } from "./Components/Cart"
+import {SortList} from "./Components/Filters"
+import {FilterList} from "./Components/Filters"
+import {FilterCart} from "./Components/Cart"
 import { createGlobalStyle } from 'styled-components';
 import Header from './Components/Header';
 import { FilterStyles, InputFilter, SelectFilter, Container, MainContent } from './Components/styles';
@@ -129,7 +128,7 @@ class App extends React.Component {
           return item;
         }
       });
-
+ 
       return {
         newProducts,
       };
@@ -146,7 +145,7 @@ class App extends React.Component {
           return item;
         }
       });
-
+ 
       return {
         newProducts,
       };
@@ -161,8 +160,8 @@ class App extends React.Component {
 
     return (
       <Container>
-        <GlobalStyle />
-        <Header />
+        <GlobalStyle/>
+        <Header/>
         <MainContent>
           <FilterStyles>
             <h3>Filters</h3>
@@ -181,7 +180,7 @@ class App extends React.Component {
               onChange={this.onChangeProductName}
               placeholder={"Nome Produto"}
             />
-            <SelectFilter onChange={this.onChangeOrder}>
+            <SelectFilter  onChange={this.onChangeOrder}>
               <option value="0">Ordem Crescente</option>
               <option value="1">Ordem Decrescente</option>
             </SelectFilter >
