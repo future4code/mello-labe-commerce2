@@ -1,14 +1,18 @@
 import React from 'react';
+import {
+    ButtonAddBasket,
+    ProductDescription,
+  } from './styles';
+  
 
 
 function Produto (props) {
 
     return (
         <div>
-            <h2>{props.name}</h2>
-            <img src={props.imageUrl} alt=""/>
-            <p> {props.value}</p>
-            <button onClick={() => props.addToCart(props.id)}>AddToCart</button>
+            <ProductDescription>{props.name}</ProductDescription><br/>
+            <img src={props.imageUrl} alt=""/><br/>
+            <ButtonAddBasket onClick={() => props.addToCart(props.id)}>AddToCart: {props.value}</ButtonAddBasket>
         </div>
     ); 
 }

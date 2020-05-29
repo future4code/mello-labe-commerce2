@@ -132,6 +132,8 @@ export const ButtonAddBasket = styled.button`
   border: none;
   cursor: pointer;
 
+
+
   :hover {
     background-color: green;
   }
@@ -139,4 +141,6 @@ export const ButtonAddBasket = styled.button`
 
 export const ProductDescription = styled.label`
   margin: 10px;
+
 `;
+

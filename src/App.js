@@ -5,6 +5,19 @@ import Cart from "./Components/Cart"
 import {SortList} from "./Components/Filters"
 import {FilterList} from "./Components/Filters"
 import {FilterCart} from "./Components/Cart"
+import { createGlobalStyle } from 'styled-components';
+import Header from './Components/Header';
+import { FilterStyles, InputFilter, SelectFilter, Container, MainContent } from './Components/styles';
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+`;
 
 class App extends React.Component {
   state = {
@@ -65,6 +78,20 @@ class App extends React.Component {
       {
         id: 8,
         name: "teste 8",
+        value: 12000.0,
+        imageUrl: "https://picsum.photos/200/200",
+        cart: false
+      },
+      {
+        id: 9,
+        name: "teste 9",
+        value: 12000.0,
+        imageUrl: "https://picsum.photos/200/200",
+        cart: false
+      },
+      {
+        id: 10,
+        name: "teste 10",
         value: 12000.0,
         imageUrl: "https://picsum.photos/200/200",
         cart: false
@@ -152,6 +179,38 @@ class App extends React.Component {
     const carrinho = FilterCart(this.state.produtos);
 
     return (
+
+      <Container>
+        <GlobalStyle/>
+        <Header/>
+        <MainContent>
+          <FilterStyles>
+            <h3>Filters</h3>
+            <InputFilter
+              value={this.state.minimunValue}
+              onChange={this.onChangeMinimunValue}
+              placeholder={"Valor Minimo"}
+            />
+            <InputFilter
+              value={this.state.maximunValue}
+              onChange={this.onChangeMaximunValue}
+              placeholder={"Valor Maximo"}
+            />
+            <InputFilter
+              value={this.state.productName}
+              onChange={this.onChangeProductName}
+              placeholder={"Nome Produto"}
+            />
+            <SelectFilter  onChange={this.onChangeOrder}>
+              <option value="0">Ordem Crescente</option>
+              <option value="1">Ordem Decrescente</option>
+            </SelectFilter >
+            <Cart products={carrinho} RemoveFromCart={this.RemoveFromCart}></Cart>
+          </FilterStyles>
+          <Home products={sortedList} addToCart={this.addToCart}></Home>
+        </MainContent>
+      </Container>
+
       <div>
         <Home products={sortedList} addToCart={this.addToCart}></Home>
         <section className="Filters">
@@ -188,6 +247,7 @@ class App extends React.Component {
           <Home />
         </MainContent>
       </Container>
+
 
     );
   }
