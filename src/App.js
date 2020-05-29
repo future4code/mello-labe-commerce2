@@ -1,3 +1,4 @@
+
 import React from "react";
 import Home from "./Components/Home"
 import Cart from "./Components/Cart"
@@ -152,13 +153,33 @@ class App extends React.Component {
     });
   };
 
-  render() {
+import React from 'react';
+import Home from './Components/Home';
+import { Container, MainContent } from './Components/styles';
+import FilterTable from './Components/FilterTable';
+import Header from './Components/Header';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+`;
+
+
+class App extends React.Component {
+  render()
     const filteredList = FilterList(this.state.produtos, this.state.maximunValue, this.state.minimunValue, this.state.productName);
     const sortedList = SortList(filteredList, this.state.order);
 
     const carrinho = FilterCart(this.state.produtos);
 
     return (
+
       <Container>
         <GlobalStyle/>
         <Header/>
@@ -189,6 +210,45 @@ class App extends React.Component {
           <Home products={sortedList} addToCart={this.addToCart}></Home>
         </MainContent>
       </Container>
+
+      <div>
+        <Home products={sortedList} addToCart={this.addToCart}></Home>
+        <section className="Filters">
+          <h1>Filters</h1>
+          <input
+            value={this.state.minimunValue}
+            onChange={this.onChangeMinimunValue}
+            placeholder={"Valor Minimo"}
+          />
+          <input
+            value={this.state.maximunValue}
+            onChange={this.onChangeMaximunValue}
+            placeholder={"Valor Maximo"}
+          />
+          <input
+            value={this.state.productName}
+            onChange={this.onChangeProductName}
+            placeholder={"Nome Produto"}
+          />
+          <select onChange={this.onChangeOrder}>
+            <option value="0">Ordem Crescente</option>
+            <option value="1">Ordem Decrescente</option>
+          </select>
+        </section>
+        <Cart products={carrinho} RemoveFromCart={this.RemoveFromCart}></Cart>
+      </div>
+
+    return (
+      <Container>
+        <GlobalStyle />
+        <Header />
+        <MainContent>
+          <FilterTable />
+          <Home />
+        </MainContent>
+      </Container>
+
+
     );
   }
 }
