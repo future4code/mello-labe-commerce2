@@ -6,8 +6,6 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
   background-color: gray;
 `;
 
@@ -51,12 +49,16 @@ export const HeaderStyle = styled.div`
   }
   @media (max-width: 1366px) {
     width: 100vw;
+    div:nth-child(1) {
+      width: 25vw;
+    }
   }
 `;
 
 export const MainContent = styled.main`
   display: flex;
   background-color: #ebeff2;
+  width: 85vw;
   @media (max-width: 1366px) {
     width: 100vw;
   }
@@ -66,20 +68,47 @@ export const MainContent = styled.main`
 export const FilterStyles = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   background-color: #32373d;
-  box-shadow: 0 1px 2px gray;
   width: 15vw;
-  height: 92vh;
+  h2 {
+    color: white;
+    padding-top: 20px;
+  }
   h3 {
     padding-top: 10px;
     color: #2fbd5d;
     text-align: center;
+  }
+  h4 {
+    color: #ffffff;
+    padding: 5px;
+  }
+  p {
+    color: #ffffff;
+  }
+  button {
+    background-color: #48bd2f;
+    color: #ffffff;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    :hover {
+      background-color: red;
+    }
+  }
+  @media (max-width: 1366px) {
+    width: 25vw;
   }
 `;
 
 export const InputFilter = styled.input`
   padding: 10px;
   margin: 10px;
+  width: 198px;
   border-radius: 2px;
   border: none;
 `;
@@ -89,6 +118,7 @@ export const SelectFilter = styled.select`
   color: #ffffff;
   padding: 10px;
   margin: 10px;
+  width: 198px;
   border-radius: 2px;
   border: none;
   cursor: pointer;
@@ -101,12 +131,11 @@ export const SelectFilter = styled.select`
 // Home
 export const ProductsCatalog = styled.div`
   display: flex;
-  flex-flow: wrap;
+  flex-wrap: wrap;
   justify-content: center;
   background-color: #ebeff2;
-  box-shadow: 1px 1px 2px gray;
   width: 70vw;
-  height: 92vh;
+  height: 100%;
   @media (max-width: 1366px) {
     width: 100vw;
   }
@@ -117,6 +146,8 @@ export const ProductCard = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   margin: 10px;
+  width: 200px;
+  height: 300px;
   background-color: #ffffff;
   box-shadow: 0 0 4px gray;
   border-radius: 2px;
