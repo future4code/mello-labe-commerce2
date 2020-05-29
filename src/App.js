@@ -1,3 +1,4 @@
+
 import React from "react";
 import Home from "./Components/Home"
 import Cart from "./Components/Cart"
@@ -125,7 +126,26 @@ class App extends React.Component {
     });
   };
 
-  render() {
+import React from 'react';
+import Home from './Components/Home';
+import { Container, MainContent } from './Components/styles';
+import FilterTable from './Components/FilterTable';
+import Header from './Components/Header';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+`;
+
+
+class App extends React.Component {
+  render()
     const filteredList = FilterList(this.state.produtos, this.state.maximunValue, this.state.minimunValue, this.state.productName);
     const sortedList = SortList(filteredList, this.state.order);
 
@@ -158,6 +178,17 @@ class App extends React.Component {
         </section>
         <Cart products={carrinho} RemoveFromCart={this.RemoveFromCart}></Cart>
       </div>
+
+    return (
+      <Container>
+        <GlobalStyle />
+        <Header />
+        <MainContent>
+          <FilterTable />
+          <Home />
+        </MainContent>
+      </Container>
+
     );
   }
 }

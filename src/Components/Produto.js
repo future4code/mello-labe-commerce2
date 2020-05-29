@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 function Produto (props) {
 
     return (
@@ -13,3 +14,12 @@ function Produto (props) {
 }
 
 export default Produto;
+
+export function Produto(props) {
+  return (
+    <p>
+      <b>{props.usuario}:</b> {props.texto}
+    </p>
+  );
+}
+
