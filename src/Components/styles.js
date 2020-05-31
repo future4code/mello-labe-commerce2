@@ -64,7 +64,7 @@ export const MainContent = styled.main`
   }
 `;
 
-//Filtro & Cart
+//Filtro
 export const FilterStyles = styled.div`
   display: flex;
   flex-direction: column;
