@@ -38,7 +38,7 @@ export const HeaderStyle = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 15vw;
+    width: 14.5vw;
     height: 8vh;
     background-color: #21262a;
   }
@@ -58,7 +58,7 @@ export const MainContent = styled.main`
   display: flex;
   background-color: #ebeff2;
   @media (max-width: 1366px) {
-    width: 100vw;
+    width: 100%;
   }
 `;
 
@@ -69,13 +69,49 @@ export const FilterStyles = styled.div`
   background-color: #32373d;
   box-shadow: 0 1px 2px gray;
   width: 15vw;
-  height: 92vh;
-  h3 {
+  height: 92 vh auto;
+  
+  h1 {
+    
+    text-shadow: 1px 1px 1px 1px black;
     padding-top: 10px;
-    color: #2fbd5d;
+    color: white;
     text-align: center;
   }
-`;
+  h3 {
+  
+    text-shadow: 1px 1px 1px 1px black;
+    padding-top: 10px;
+    color: white;
+    text-align: center;
+  }  
+  h4 {
+      
+    padding-top: 10px;
+    color: white;
+    text-shadow: 1px 1px 1px 1px black;
+    text-align: center;
+  }
+  p {
+    
+    text-shadow: 1px 1px 1px 1px black;
+    padding-top: 10px;
+    color: white;
+    text-align: center;
+  }
+  button {
+    background-color: #48bd2f;
+    color: whitesmoke;
+    padding: 10px;
+    margin: 10px;
+    margin-left:32px;
+    border-radius: 2px;
+    box-shadow: 0 0 2px grey;
+    border: none;
+    cursor: pointer;
+  }
+ 
+  `;
 
 export const InputFilter = styled.input`
   padding: 10px;
@@ -108,7 +144,7 @@ export const ProductsCatalog = styled.div`
   width: 70vw;
   height: 92vh;
   @media (max-width: 1366px) {
-    width: 100vw;
+    width: 100%;
   }
 `;
 

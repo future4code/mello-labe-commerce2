@@ -1,9 +1,9 @@
 import React from "react";
 import Home from "./Components/Home"
 import Cart from "./Components/Cart"
-import {SortList} from "./Components/Filters"
-import {FilterList} from "./Components/Filters"
-import {FilterCart} from "./Components/Cart"
+import { SortList } from "./Components/Filters"
+import { FilterList } from "./Components/Filters"
+import { FilterCart } from "./Components/Cart"
 import { createGlobalStyle } from 'styled-components';
 import Header from './Components/Header';
 import { FilterStyles, InputFilter, SelectFilter, Container, MainContent } from './Components/styles';
@@ -28,74 +28,76 @@ class App extends React.Component {
     produtos: [
       {
         id: 1,
-        name: "teste 1",
+        name: "Camiseta Nasa",
         value: 10000.0,
-        imageUrl: "https://picsum.photos/200/200",
-        cart: false
+        imageUrl: "https://picsum.photos/200/200?=a1",
+        cart: 0
       },
       {
         id: 2,
-        name: "teste 2",
+        name: "Camiseta Galáxia",
         value: 500.0,
-        imageUrl: "https://picsum.photos/200/200",
-        cart: false
+        imageUrl: "https://picsum.photos/200/200?=a2",
+        cart: 0
       },
       {
         id: 3,
-        name: "teste 3",
+        name: "Camiseta Universo",
         value: 700.0,
-        imageUrl: "https://picsum.photos/200/200",
-        cart: false
+        imageUrl: "https://picsum.photos/200/200?=a3",
+        cart: 0
       },
       {
         id: 4,
-        name: "teste 4",
+        name: "Foguete miniatura",
         value: 650.0,
-        imageUrl: "https://picsum.photos/200/200",
+        imageUrl: "https://picsum.photos/200/200?=a4",
+        cart: 0
       },
       {
         id: 5,
-        name: "teste 5",
+        name: "Caneca Nasa",
         value: 350.0,
-        imageUrl: "https://picsum.photos/200/200",
-        cart: false
+        imageUrl: "https://picsum.photos/200/200?=a5",
+        cart: 0
       },
       {
         id: 6,
-        name: "teste 6",
+        name: "Lua miniatura",
         value: 750.0,
-        imageUrl: "https://picsum.photos/200/200",
-        cart: false
+        imageUrl: "https://picsum.photos/200/200?=a6",
+        cart: 0
       },
       {
         id: 7,
-        name: "teste 7",
+        name: "Caneta Nasa",
         value: 50.0,
-        imageUrl: "https://picsum.photos/200/200",
-        cart: false
+        imageUrl: "https://picsum.photos/200/200?=a7",
+        cart: 0
       },
       {
         id: 8,
-        name: "teste 8",
-        value: 12000.0,
-        imageUrl: "https://picsum.photos/200/200",
-        cart: false
+        name: "Traje Astronauta",
+        value: 22000.0,
+        imageUrl: "https://picsum.photos/200/200?=a8",
+        cart: 0
       },
       {
         id: 9,
-        name: "teste 9",
-        value: 12000.0,
-        imageUrl: "https://picsum.photos/200/200",
-        cart: false
+        name: "Capacete Astronauta",
+        value: 3000.0,
+        imageUrl: "https://picsum.photos/200/200?=a9",
+        cart: 0
       },
       {
         id: 10,
-        name: "teste 10",
-        value: 12000.0,
-        imageUrl: "https://picsum.photos/200/200",
-        cart: false
+        name: "Nave miniatura",
+        value: 32000.0,
+        imageUrl: "https://picsum.photos/200/200?=a10",
+        cart: 0
       }
-    ]
+    ],
+
   };
 
   onChangeMinimunValue = event => {
@@ -119,21 +121,19 @@ class App extends React.Component {
   }
 
   addToCart = (id) => {
-    this.setState(state => {
-      const newProducts = state.produtos.map((item) => {
-        if (item.id === id) {
-          item.cart = true;
-          return item;
-        } else {
-          return item;
-        }
-      });
- 
-      return {
-        newProducts,
-      };
+    const newProducts = this.state.produtos.map((item) => {
+      if (item.id === id) {
+        item.cart++;
+        return item;
+      } else {
+        return item;
+      }
     });
+    this.setState({ produtos: newProducts })
+
+    console.log("oi")
   };
+
 
   RemoveFromCart = (id) => {
     this.setState(state => {
@@ -145,7 +145,7 @@ class App extends React.Component {
           return item;
         }
       });
- 
+
       return {
         newProducts,
       };
@@ -160,8 +160,8 @@ class App extends React.Component {
 
     return (
       <Container>
-        <GlobalStyle/>
-        <Header/>
+        <GlobalStyle />
+        <Header />
         <MainContent>
           <FilterStyles>
             <h3>Filters</h3>
@@ -180,7 +180,7 @@ class App extends React.Component {
               onChange={this.onChangeProductName}
               placeholder={"Nome Produto"}
             />
-            <SelectFilter  onChange={this.onChangeOrder}>
+            <SelectFilter onChange={this.onChangeOrder}>
               <option value="0">Ordem Crescente</option>
               <option value="1">Ordem Decrescente</option>
             </SelectFilter >
